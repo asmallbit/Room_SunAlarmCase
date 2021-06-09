@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">温室室内光照度的远程报警系统</string>
+    <string name="collectCycleDsc">采集周期</string>
+    <string name="collectCycle">500</string>
+    <string name="millisecond">ms</string>
+    <string name="sun_ipDsc">光照度  IP</string>
+    <string name="open">断开</string>
+    <string name="connected">连接</string>
+    <string name="statusBar">状态信息栏</string>
+    <string name="both">，联动</string>
+    <string name="sunMax">700</string>
+    <string name="maxDsc">，上限</string>
+    <string name="sunLux">Lux</string>
+    <string name="realSun">- -</string>
+    <string name="realSunDsc">光照值：</string>
+    <string name="port">4001</string>
+    <string name="curtainIpDsc">窗帘 &#160;&#160; IP</string>
+    <string name="curtainIp">192.168.0.108</string>
+    <string name="buzzerIp">192.168.0.107</string>
+    <string name="BuzzerIpDsc">蜂鸣器 IP</string>
+    <string name="tubeIp">192.168.0.106</string>
+    <string name="tubeIpDsc">数码管 IP</string>
+    <string name="sunIp">192.168.0.103</string>
+
+</resources>

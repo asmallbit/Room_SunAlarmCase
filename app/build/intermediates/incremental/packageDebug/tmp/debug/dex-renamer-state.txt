@@ -1,0 +1,4 @@
+#Thu Jun 03 20:12:01 CST 2021
+base.0=D\:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

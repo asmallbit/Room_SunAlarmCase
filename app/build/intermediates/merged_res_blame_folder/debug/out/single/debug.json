@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_push_button_selected_bg.png.flat",
+        "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\drawable-xxhdpi\\push_button_selected_bg.png"
+    },
+    {
+        "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_push_button_ball_unselected.png.flat",
+        "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\drawable-xxhdpi\\push_button_ball_unselected.png"
+    },
+    {
+        "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_push_button_unselected_bg.png.flat",
+        "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\drawable-xxhdpi\\push_button_unselected_bg.png"
+    },
+    {
+        "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_push_button_ball_selected.png.flat",
+        "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\drawable-xxhdpi\\push_button_ball_selected.png"
+    },
+    {
+        "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_icon1.png.flat",
+        "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\drawable-xxhdpi\\icon1.png"
+    }
+]
