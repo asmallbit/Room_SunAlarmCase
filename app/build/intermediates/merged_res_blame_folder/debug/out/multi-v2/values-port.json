@@ -4,7 +4,7 @@
             "outputFile": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-port\\values-port.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\183340c01d99c4ed903c01a2dcd804a3\\support-compat-26.1.0\\res\\values-port\\values-port.xml",
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\7160c6b9fdb2bc1e41d9bd715d01fdc2\\appcompat-1.3.0\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

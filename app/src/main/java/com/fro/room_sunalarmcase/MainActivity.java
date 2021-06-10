@@ -4,15 +4,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.fro.room_sunalarmcase.view.PushSlideSwitchView;
-import com.fro.room_sunalarmcase.view.PushSlideSwitchView.OnSwitchChangedListener;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -42,6 +42,11 @@ public class MainActivity extends Activity {
 
 	private ConnectTask connectTask;
 
+	private PushSlideSwitchView storeStatus;
+	private Button showDataBtn;
+
+	private int counter;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -60,22 +65,24 @@ public class MainActivity extends Activity {
 	 * 绑定控件
 	 */
 	private void bindView() {
-		sunIp_et = (EditText) findViewById(R.id.sunIp_et);
-		sunPort_et = (EditText) findViewById(R.id.sunPort_et);
-		tubeIp_et = (EditText) findViewById(R.id.tubeIp_et);
-		tubePort_et = (EditText) findViewById(R.id.tubePort_et);
-		buzzerIp_et = (EditText) findViewById(R.id.buzzerIp_et);
-		buzzerPort_et = (EditText) findViewById(R.id.buzzerPort_et);
-		curtainIp_et = (EditText) findViewById(R.id.curtainIp_et);
-		curtainPort_et = (EditText) findViewById(R.id.curtainPort_et);
+		sunIp_et = findViewById(R.id.sunIp_et);
+		sunPort_et = findViewById(R.id.sunPort_et);
+		tubeIp_et = findViewById(R.id.tubeIp_et);
+		tubePort_et = findViewById(R.id.tubePort_et);
+		buzzerIp_et = findViewById(R.id.buzzerIp_et);
+		buzzerPort_et = findViewById(R.id.buzzerPort_et);
+		curtainIp_et = findViewById(R.id.curtainIp_et);
+		curtainPort_et = findViewById(R.id.curtainPort_et);
 
-		time_et = (EditText) findViewById(R.id.time_et);
-		maxLim_et = (EditText) findViewById(R.id.maxLim_et);
-		connect_tb = (ToggleButton) findViewById(R.id.connect_tb);
-		info_tv = (TextView) findViewById(R.id.info_tv);
-		sun_tv = (TextView) findViewById(R.id.sun_tv);
-		linkage_sw = (PushSlideSwitchView) findViewById(R.id.linkage_sw);
-		progressBar = (ProgressBar) findViewById(R.id.progressBar);
+		time_et = findViewById(R.id.time_et);
+		maxLim_et = findViewById(R.id.maxLim_et);
+		connect_tb = findViewById(R.id.connect_tb);
+		info_tv = findViewById(R.id.info_tv);
+		sun_tv = findViewById(R.id.sun_tv);
+		linkage_sw = findViewById(R.id.linkage_sw);
+		progressBar = findViewById(R.id.progressBar);
+		storeStatus = findViewById(R.id.store_status);
+		showDataBtn = findViewById(R.id.show_data);
 	}
 
 	/**
@@ -104,84 +111,115 @@ public class MainActivity extends Activity {
 	private void initEvent() {
 
 		// 联动
-		linkage_sw.setOnChangeListener(new OnSwitchChangedListener() {
-			@Override
-			public void onSwitchChange(PushSlideSwitchView switchView, boolean isChecked) {
-				if (isChecked) {
-					Const.linkage = true;
-				} else {
-					Const.linkage = false;
-				}
+		linkage_sw.setOnChangeListener((switchView, isChecked) -> {
+			if (isChecked) {
+				Const.linkage = true;
+			} else {
+				Const.linkage = false;
 			}
 		});
 
 		// 连接
-		connect_tb.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				if (isChecked) {
+		connect_tb.setOnCheckedChangeListener((buttonView, isChecked) -> {
+			if (isChecked) {
 
-					// 获取IP和端口
-					String SUN_IP = sunIp_et.getText().toString().trim();
-					String SUN_PORT = sunPort_et.getText().toString().trim();
-					String TUBE_IP = tubeIp_et.getText().toString().trim();
-					String TUBE_PORT = tubePort_et.getText().toString().trim();
-					String BUZZER_IP = buzzerIp_et.getText().toString().trim();
-					String BUZZER_PORT = buzzerPort_et.getText().toString().trim();
-					String CURTAIN_IP = curtainIp_et.getText().toString().trim();
-					String CURTAIN_PORT = curtainPort_et.getText().toString().trim();
-					
-					if (checkIpPort(SUN_IP, SUN_PORT) && checkIpPort(TUBE_IP, TUBE_PORT)
-							&& checkIpPort(BUZZER_IP, BUZZER_PORT) && checkIpPort(CURTAIN_IP, CURTAIN_PORT)) {
-						Const.SUN_IP = SUN_IP;
-						Const.SUN_PORT = Integer.parseInt(SUN_PORT);
-						Const.TUBE_IP = TUBE_IP;
-						Const.TUBE_PORT = Integer.parseInt(TUBE_PORT);
-						Const.BUZZER_IP = BUZZER_IP;
-						Const.BUZZER_PORT = Integer.parseInt(BUZZER_PORT);
-						Const.CURTAIN_IP = CURTAIN_IP;
-						Const.CURTAIN_PORT = Integer.parseInt(CURTAIN_PORT);
-					} else {
-						Toast.makeText(context, "配置信息不正确,请重输！", Toast.LENGTH_SHORT).show();
-						return;
-					}
-					// 获取其他参数
-					Const.time = Integer.parseInt(time_et.getText().toString().trim());
-					Const.maxLim = Integer.parseInt(maxLim_et.getText().toString().trim());
-					
-					// 进度条显示
-					progressBar.setVisibility(View.VISIBLE);
-					
-					// 开启任务
-					connectTask = new ConnectTask(context, sun_tv, info_tv, progressBar);
-					connectTask.setCIRCLE(true);
-					connectTask.execute();
+				// 获取IP和端口
+				String SUN_IP = sunIp_et.getText().toString().trim();
+				String SUN_PORT = sunPort_et.getText().toString().trim();
+				String TUBE_IP = tubeIp_et.getText().toString().trim();
+				String TUBE_PORT = tubePort_et.getText().toString().trim();
+				String BUZZER_IP = buzzerIp_et.getText().toString().trim();
+				String BUZZER_PORT = buzzerPort_et.getText().toString().trim();
+				String CURTAIN_IP = curtainIp_et.getText().toString().trim();
+				String CURTAIN_PORT = curtainPort_et.getText().toString().trim();
+
+				if (checkIpPort(SUN_IP, SUN_PORT) && checkIpPort(TUBE_IP, TUBE_PORT)
+						&& checkIpPort(BUZZER_IP, BUZZER_PORT) && checkIpPort(CURTAIN_IP, CURTAIN_PORT)) {
+					Const.SUN_IP = SUN_IP;
+					Const.SUN_PORT = Integer.parseInt(SUN_PORT);
+					Const.TUBE_IP = TUBE_IP;
+					Const.TUBE_PORT = Integer.parseInt(TUBE_PORT);
+					Const.BUZZER_IP = BUZZER_IP;
+					Const.BUZZER_PORT = Integer.parseInt(BUZZER_PORT);
+					Const.CURTAIN_IP = CURTAIN_IP;
+					Const.CURTAIN_PORT = Integer.parseInt(CURTAIN_PORT);
 				} else {
-
-					// 取消任务
-					if (connectTask != null && connectTask.getStatus() == AsyncTask.Status.RUNNING) {
-						connectTask.setCIRCLE(false);
-						try {
-							Thread.sleep(3000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-						// 如果Task还在运行，则先取消它
-						connectTask.cancel(true);
-						connectTask.closeSocket();
-					}
-					// 进度条消失
-					progressBar.setVisibility(View.GONE);
-					info_tv.setText("请点击连接！");
-					info_tv.setTextColor(context.getResources().getColor(R.color.gray));
+					Toast.makeText(context, "配置信息不正确,请重输！", Toast.LENGTH_SHORT).show();
+					return;
 				}
+				// 获取其他参数
+				Const.time = Integer.parseInt(time_et.getText().toString().trim());
+				Const.maxLim = Integer.parseInt(maxLim_et.getText().toString().trim());
+
+				// 进度条显示
+				progressBar.setVisibility(View.VISIBLE);
+
+				// 开启任务
+				connectTask = new ConnectTask(context, sun_tv, info_tv, progressBar);
+				connectTask.setCIRCLE(true);
+				connectTask.execute();
+
+				//数据处理
+				connectTask.setDataDownloadListener(new ConnectTask.DataDownloadListener()
+				{
+					@SuppressLint("ResourceType")
+					@Override
+					public void dataDownloadedSuccessfully(String date, int sunkey) {
+						// handler result
+						storeStatus.setOnChangeListener((switchView, isChecked) -> {
+							//如果选中,就将数据保存
+							if(isChecked){
+								//保存到数据库
+								if(connect_tb.isChecked()){
+									boolean isover;
+									int sunmax;
+									sunmax = Integer.getInteger(getString(R.id.maxLim_et));
+									//将返回的数据保存到SQlite数据库
+									DBHelper mDBHelper = new DBHelper(MainActivity.this);
+									boolean result = mDBHelper.addOne(date, sunkey,  sunmax, (sunkey>sunmax));
+									//数据保存失败提示
+									if(result==false){
+										Toast.makeText(MainActivity.this, "数据保存失败", Toast.LENGTH_LONG).show();
+									}
+
+								}
+							}
+						});
+					}
+				});
+			} else {
+
+				// 取消任务
+				if (connectTask != null && connectTask.getStatus() == AsyncTask.Status.RUNNING) {
+					connectTask.setCIRCLE(false);
+					try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					// 如果Task还在运行，则先取消它
+					connectTask.cancel(true);
+					connectTask.closeSocket();
+				}
+				// 进度条消失
+				progressBar.setVisibility(View.GONE);
+				info_tv.setText("请点击连接！");
+				info_tv.setTextColor(context.getResources().getColor(R.color.gray));
 			}
 		});
+
+		//显示存储的数据
+		showDataBtn.setOnClickListener(v -> {
+			//Intent  到ShowStoredData
+			Intent mIntent = new Intent(MainActivity.this, ShowStoredData.class);
+			startActivity(mIntent);
+		});
+
 	}
 
 	/**
 	 * IP地址可用端口号验证，可用端口号（1024-65536）
-	 * 
+	 *
 	 * @param IP
 	 * @param port
 	 * @return

@@ -2,19 +2,26 @@ package com.fro.room_sunalarmcase;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.icu.text.DateFormat;
+import android.icu.text.SimpleDateFormat;
+import android.icu.util.Calendar;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.fro.util.FRODigTube;
+import com.fro.util.FROSun;
+import com.fro.util.StreamUtil;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
-import com.fro.util.FRODigTube;
-import com.fro.util.FROSun;
-import com.fro.util.StreamUtil;
+import androidx.annotation.RequiresApi;
 
 /**
  * Created by Jorble on 2016/3/4.
@@ -36,6 +43,8 @@ public class ConnectTask extends AsyncTask<Void, Void, Void> {
 	private Socket curtainSocket;
 
 	private boolean CIRCLE = false;
+
+	DataDownloadListener mDataDownloadListener;
 
 	public ConnectTask(Context context, TextView sun_tv, TextView info_tv, ProgressBar progressBar) {
 		this.context = context;
@@ -81,6 +90,7 @@ public class ConnectTask extends AsyncTask<Void, Void, Void> {
 	 * @param params
 	 * @return
 	 */
+	@RequiresApi(api = Build.VERSION_CODES.N)
 	@Override
 	protected Void doInBackground(Void... params) {
 		// 连接
@@ -88,6 +98,14 @@ public class ConnectTask extends AsyncTask<Void, Void, Void> {
 		tubeSocket = getSocket(Const.TUBE_IP, Const.TUBE_PORT);
 		buzzerSocket = getSocket(Const.BUZZER_IP, Const.BUZZER_PORT);
 		curtainSocket = getSocket(Const.CURTAIN_IP, Const.CURTAIN_PORT);
+
+		//设置检测的数据
+		String date;
+		int sunkey, sunmax;
+		boolean isover;
+
+
+
 		// 循环读取数据
 		while (CIRCLE) {
 			try {
@@ -99,7 +117,18 @@ public class ConnectTask extends AsyncTask<Void, Void, Void> {
 					byte[] read_buff = StreamUtil.readData(sunSocket.getInputStream());
 					Float sun = FROSun.getData(Const.SUN_LEN, Const.SUN_NUM, read_buff);
 					if (sun != null) {
+						//把光照度显示到屏幕上
 						Const.sun = (int) (float) sun;
+
+						//获取到光照度,可以用sqlite存储光照度数据
+						sunkey = Const.sun;
+						//时间
+						@SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("yy.MM.dd 'at' HH:mm:ss");
+						date = df.format(Calendar.getInstance().getTime());
+
+						//由MainActivity接口处理
+						mDataDownloadListener.dataDownloadedSuccessfully(date, sunkey);
+
 					}
 
 					// 数码管显示
@@ -211,6 +240,14 @@ public class ConnectTask extends AsyncTask<Void, Void, Void> {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void setDataDownloadListener(DataDownloadListener dataDownloadListener) {
+		this.mDataDownloadListener = dataDownloadListener;
+	}
+
+	public static interface DataDownloadListener {
+		void dataDownloadedSuccessfully(String date, int sunkey);
 	}
 
 }

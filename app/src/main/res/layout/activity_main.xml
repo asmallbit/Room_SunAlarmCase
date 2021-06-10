@@ -229,6 +229,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/lines"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/secondPs">
         <TextView
@@ -292,22 +293,22 @@
         android:layout_width="wrap_content"  
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-            android:layout_toRightOf="@+id/both"
+        android:layout_toRightOf="@+id/both"
         android:layout_marginLeft="10dp"  
         android:layout_marginRight="10dp"
         android:enabled="true"
-            android:layout_toEndOf="@+id/both" />
+        android:layout_toEndOf="@+id/both" />
     
     <!-- 连接/断开 -->
         <ToggleButton
             android:id="@+id/connect_tb"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_below="@+id/both"
-            android:layout_centerInParent="true"
+            android:backgroundTint="@color/gray"
             android:textOff="@string/connected"
             android:textOn="@string/open" />
+
         <TextView
             android:id="@+id/info_tv"
             android:layout_width="wrap_content"
@@ -318,10 +319,48 @@
             android:layout_alignBaseline="@+id/connect_tb"
             android:text="@string/statusBar" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone" />
+            android:layout_below="@+id/lux"
+            android:id="@+id/spaces"
+            android:layout_alignBaseline="@+id/connect_tb"
+            android:layout_toRightOf="@+id/info_tv"
+            android:text="@string/space"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dataDes"
+            android:text="@string/store_Status"
+            android:layout_toRightOf="@id/spaces"
+            android:layout_alignBaseline="@+id/connect_tb"
+            android:layout_below="@+id/lux"/>
+
+        <com.fro.room_sunalarmcase.view.PushSlideSwitchView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/store_status"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignBaseline="@+id/dataDes"
+            android:enabled="true"
+            android:layout_toRightOf="@+id/dataDes"
+            android:layout_below="@+id/lux"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_data"
+            android:backgroundTint="@color/gray"
+            android:id="@+id/show_data"
+            android:layout_toRightOf="@id/store_status"
+            android:layout_alignBaseline="@+id/connect_tb"
+            android:layout_toEndOf="@id/store_status" />
     </RelativeLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 </RelativeLayout>

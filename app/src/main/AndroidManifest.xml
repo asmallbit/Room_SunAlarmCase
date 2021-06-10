@@ -17,8 +17,8 @@
     </uses-permission>
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="19" />
+        android:minSdkVersion="16"
+        android:targetSdkVersion="28" />
 
     <application
         android:allowBackup="true"
@@ -32,10 +32,17 @@
             android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ShowStoredData"
+            android:label="@string/label2"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fro.room_sunalarmcase.MainActivity"/>
+        </activity>
+
     </application>
 
 </manifest>

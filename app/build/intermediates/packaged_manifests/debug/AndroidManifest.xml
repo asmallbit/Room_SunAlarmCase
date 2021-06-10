@@ -5,8 +5,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="26" />
+        android:minSdkVersion="16"
+        android:targetSdkVersion="28" />
 
     <!-- wifi -->
     <uses-permission android:name="android.permission.INTERNET" >
@@ -22,6 +22,7 @@
 
     <application
         android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@drawable/icon1"
         android:label="@string/app_name"
@@ -30,20 +31,22 @@
             android:name="com.fro.room_sunalarmcase.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <meta-data
-            android:name="android.support.VERSION"
-            android:value="26.1.0" />
-        <meta-data
-            android:name="android.arch.lifecycle.VERSION"
-            android:value="27.0.0-SNAPSHOT" />
+        <activity
+            android:name="com.fro.room_sunalarmcase.ShowStoredData"
+            android:label="@string/label2"
+            android:parentActivityName="com.fro.room_sunalarmcase.MainActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fro.room_sunalarmcase.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -2,26 +2,60 @@
 <resources>
 
     <string name="app_name">温室室内光照度的远程报警系统</string>
-    <string name="collectCycleDsc">采集周期</string>
-    <string name="collectCycle">500</string>
-    <string name="millisecond">ms</string>
-    <string name="sun_ipDsc">光照度  IP</string>
-    <string name="open">断开</string>
-    <string name="connected">连接</string>
-    <string name="statusBar">状态信息栏</string>
-    <string name="both">，联动</string>
-    <string name="sunMax">700</string>
-    <string name="maxDsc">，上限</string>
-    <string name="sunLux">Lux</string>
-    <string name="realSun">- -</string>
-    <string name="realSunDsc">光照值：</string>
-    <string name="port">4001</string>
-    <string name="curtainIpDsc">窗帘 &#160;&#160; IP</string>
+    <string name="label2">显示数据库中存储的数据</string>
+
+    <!-- IP -->
     <string name="curtainIp">192.168.0.108</string>
     <string name="buzzerIp">192.168.0.107</string>
-    <string name="BuzzerIpDsc">蜂鸣器 IP</string>
     <string name="tubeIp">192.168.0.106</string>
-    <string name="tubeIpDsc">数码管 IP</string>
     <string name="sunIp">192.168.0.103</string>
+
+    <!-- port -->
+    <string name="port">4001</string>
+
+    <!-- description stuff -->
+    <string name="collectCycleDsc">采集周期</string>
+    <string name="millisecond">ms</string>
+    <string name="curtainIpDsc">窗帘 &#160;&#160; IP</string>
+    <string name="BuzzerIpDsc">蜂鸣器 IP</string>
+    <string name="tubeIpDsc">数码管 IP</string>
+    <string name="sun_ipDsc">光照度  IP</string>
+
+    <!-- collect cycle -->
+    <string name="collectCycle">500</string>
+
+    <!-- -1 line -->
+    <string name="realSunDsc">光照值：</string>
+    <string name="realSun">- -</string>
+    <string name="sunLux">Lux</string>
+    <string name="maxDsc">，上限</string>
+    <string name="sunMax">700</string>
+    <string name="both">，联动</string>
+
+    <!-- last line -->
+    <string name="open">断开</string>
+    <string name="connected">连接</string>
+    <string name="space"> &#160; &#160; &#160; &#160; </string>
+
+    <string name="statusBar">状态信息栏</string>
+    <string name="no_connect">请点击连接!</string>
+    <string name="connect_success">连接正常</string>
+
+    <!-- database -->
+    <string name="store_Status">数据保存至数据库</string>
+    <string name="show_data">显示保存的数据</string>
+
+    <!-- table -->
+    <string name="tabel_name">各时段光照数据统计</string>
+    <string name="date">记录时间</string>
+    <string name="sun_key">光照度</string>
+    <string name="sun_max">光照度上限</string>
+    <string name="over_max">是否超过阈值</string>
+
+
+
+
+
+
 
 </resources>
