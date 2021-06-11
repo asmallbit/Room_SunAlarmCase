@@ -1,31 +1,31 @@
 com/fro/util/FROSun.java
  com.fro.util.FROSun
-com/fro/room_sunalarmcase/ShowStoredData.java
- com.fro.room_sunalarmcase.ShowStoredData
+com/fro/room_sunalarmcase/view/PushSlideSwitchView.java
+ com.fro.room_sunalarmcase.view.PushSlideSwitchView
+ com.fro.room_sunalarmcase.view.PushSlideSwitchView$OnSwitchChangedListener
 com/fro/util/FRODigTube.java
  com.fro.util.FRODigTube
 com/fro/room_sunalarmcase/ConnectTask.java
  com.fro.room_sunalarmcase.ConnectTask
- com.fro.room_sunalarmcase.ConnectTask$DataDownloadListener
 com/fro/util/HexStrConvertUtil.java
  com.fro.util.HexStrConvertUtil
-com/fro/room_sunalarmcase/MainActivity.java
- com.fro.room_sunalarmcase.MainActivity
- com.fro.room_sunalarmcase.MainActivity$1
+com/fro/util/ByteToFloatUtil.java
+ com.fro.util.ByteToFloatUtil
 com/fro/util/StreamUtil.java
  com.fro.util.StreamUtil
 com/fro/util/CRCValidate.java
  com.fro.util.CRCValidate
 com/fro/room_sunalarmcase/BuildConfig.java
  com.fro.room_sunalarmcase.BuildConfig
+com/fro/room_sunalarmcase/Const.java
+ com.fro.room_sunalarmcase.Const
+com/fro/room_sunalarmcase/MainActivity.java
+ com.fro.room_sunalarmcase.MainActivity
+ com.fro.room_sunalarmcase.MainActivity$1
+ com.fro.room_sunalarmcase.MainActivity$HandleData
+com/fro/room_sunalarmcase/ShowStoredData.java
+ com.fro.room_sunalarmcase.ShowStoredData
 com/fro/room_sunalarmcase/ALineofDB.java
  com.fro.room_sunalarmcase.ALineofDB
 com/fro/room_sunalarmcase/DBHelper.java
  com.fro.room_sunalarmcase.DBHelper
-com/fro/room_sunalarmcase/Const.java
- com.fro.room_sunalarmcase.Const
-com/fro/room_sunalarmcase/view/PushSlideSwitchView.java
- com.fro.room_sunalarmcase.view.PushSlideSwitchView
- com.fro.room_sunalarmcase.view.PushSlideSwitchView$OnSwitchChangedListener
-com/fro/util/ByteToFloatUtil.java
- com.fro.util.ByteToFloatUtil

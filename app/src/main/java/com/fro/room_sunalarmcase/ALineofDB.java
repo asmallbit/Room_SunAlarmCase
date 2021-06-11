@@ -13,6 +13,17 @@ public class ALineofDB{
         this.isover = isover;
     }
 
+    @Override
+    public String toString() {
+        return "ALineofDB{" +
+                "date='" + date + '\'' +
+                ", id=" + id +
+                ", sunkey=" + sunkey +
+                ", sunmax=" + sunmax +
+                ", isover=" + isover +
+                '}';
+    }
+
     public String getDate() {
         return this.date;
     }

@@ -1,15 +1,27 @@
 package com.fro.room_sunalarmcase;
 
+import java.sql.Time;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.fro.room_sunalarmcase.view.PushSlideSwitchView;
+import com.mylhyl.acp.Acp;
+import com.mylhyl.acp.AcpListener;
+import com.mylhyl.acp.AcpOptions;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.icu.text.DateFormat;
+import android.icu.text.SimpleDateFormat;
+import android.icu.util.Calendar;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,19 +51,26 @@ public class MainActivity extends Activity {
 	private TextView info_tv;
 	private PushSlideSwitchView linkage_sw;
 	private ProgressBar progressBar;
-
 	private ConnectTask connectTask;
 
 	private PushSlideSwitchView storeStatus;
 	private Button showDataBtn;
 
-	private int counter;
+	private long cycle=5000;
+	private long delay=0;
+
+	private int bool;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		context = this;
+
+		//Check Permission
+		if (Build.VERSION.SDK_INT >= 23) {
+			checkPermission();
+		}
 
 		// 绑定控件
 		bindView();
@@ -102,6 +121,9 @@ public class MainActivity extends Activity {
 		maxLim_et.setText(String.valueOf(Const.maxLim));
 		linkage_sw.setChecked(true);
 
+		//默认不会保存数据
+		storeStatus.setChecked(false);
+
 		info_tv.setText("请点击连接!");
 	}
 
@@ -121,6 +143,9 @@ public class MainActivity extends Activity {
 
 		// 连接
 		connect_tb.setOnCheckedChangeListener((buttonView, isChecked) -> {
+			//保存数据的定时任务
+			Timer timer = new Timer();
+
 			if (isChecked) {
 
 				// 获取IP和端口
@@ -159,32 +184,15 @@ public class MainActivity extends Activity {
 				connectTask.setCIRCLE(true);
 				connectTask.execute();
 
-				//数据处理
-				connectTask.setDataDownloadListener(new ConnectTask.DataDownloadListener()
-				{
-					@SuppressLint("ResourceType")
-					@Override
-					public void dataDownloadedSuccessfully(String date, int sunkey) {
-						// handler result
-						storeStatus.setOnChangeListener((switchView, isChecked) -> {
-							//如果选中,就将数据保存
-							if(isChecked){
-								//保存到数据库
-								if(connect_tb.isChecked()){
-									boolean isover;
-									int sunmax;
-									sunmax = Integer.getInteger(getString(R.id.maxLim_et));
-									//将返回的数据保存到SQlite数据库
-									DBHelper mDBHelper = new DBHelper(MainActivity.this);
-									boolean result = mDBHelper.addOne(date, sunkey,  sunmax, (sunkey>sunmax));
-									//数据保存失败提示
-									if(result==false){
-										Toast.makeText(MainActivity.this, "数据保存失败", Toast.LENGTH_LONG).show();
-									}
-
-								}
-							}
-						});
+				//保存数据
+				storeStatus.setOnChangeListener((switchView, isCheck) -> {
+					//如果选中,就将数据保存
+					if(isCheck){
+						//保存到数据库
+						if(connect_tb.isChecked()){
+							//每隔10s记录一次
+							timer.schedule(new HandleData(), delay, cycle);
+						}
 					}
 				});
 			} else {
@@ -205,6 +213,10 @@ public class MainActivity extends Activity {
 				progressBar.setVisibility(View.GONE);
 				info_tv.setText("请点击连接！");
 				info_tv.setTextColor(context.getResources().getColor(R.color.gray));
+				//https://stackoverflow.com/questions/1409116/how-to-stop-the-task-scheduled-in-java-util-timer-class
+				//停止向数据库写入数据
+				timer.cancel();
+				timer.purge();
 			}
 		});
 
@@ -215,6 +227,24 @@ public class MainActivity extends Activity {
 			startActivity(mIntent);
 		});
 
+	}
+
+	//handle the data, push them to database
+	public class HandleData extends TimerTask {
+		public void run(){
+			//将返回的数据保存到SQlite数据库
+			DBHelper mDBHelper = new DBHelper(MainActivity.this);
+			if (Const.sun>Const.maxLim){
+				bool = 1;
+			} else {
+				bool = 0;
+			}
+			boolean result = mDBHelper.addOne(getTime(), Const.sun,  Const.maxLim, bool);
+			//数据保存失败提示
+			if(result==false){
+				Toast.makeText(MainActivity.this, "数据保存失败", Toast.LENGTH_LONG).show();
+			}
+		}
 	}
 
 	/**
@@ -260,5 +290,30 @@ public class MainActivity extends Activity {
 			connectTask.cancel(true);
 			connectTask.closeSocket();
 		}
+	}
+
+	public String getTime(){
+		//时间
+		@SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("yy.MM.dd 'at' HH:mm:ss");
+		String date = df.format(Calendar.getInstance().getTime());
+		return date;
+	}
+
+	//TODO: ask for permission
+	private void checkPermission() {
+		Acp.getInstance(this).request(new AcpOptions.Builder()
+						.setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+						.build(),
+				new AcpListener() {
+					@Override
+					public void onGranted() {
+
+					}
+
+					@Override
+					public void onDenied(List permissions) {
+						Toast.makeText(null, "请授予存储权限,否则数据无法保存至数据库", Toast.LENGTH_SHORT).show();
+					}
+				});
 	}
 }

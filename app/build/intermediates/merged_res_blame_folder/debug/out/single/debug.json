@@ -4,10 +4,6 @@
         "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\drawable-xxhdpi\\push_button_selected_bg.png"
     },
     {
-        "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\layout_show_data.xml.flat",
-        "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\layout\\show_data.xml"
-    },
-    {
         "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_push_button_ball_unselected.png.flat",
         "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\drawable-xxhdpi\\push_button_ball_unselected.png"
     },
@@ -16,12 +12,12 @@
         "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\drawable-xxhdpi\\push_button_unselected_bg.png"
     },
     {
-        "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
-        "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\layout\\activity_main.xml"
-    },
-    {
         "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_push_button_ball_selected.png.flat",
         "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\drawable-xxhdpi\\push_button_ball_selected.png"
+    },
+    {
+        "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_show_data.xml.flat",
+        "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\layout-v21\\show_data.xml"
     },
     {
         "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_activity_main.xml.flat",

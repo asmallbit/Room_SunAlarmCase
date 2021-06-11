@@ -17,25 +17,31 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_SUNKEY = "SUNKEY";
     public static final String COL_SUNMAX = "SUNMAX";
     public static final String COL_ISOVER = "ISOVER";
-    public static final String TABLE_NAME = "SUN KEY";
+    public static final String TABLE_NAME = "SUN_KEY_LIST";
     public static final String COL_ID = "ID";
 
     public DBHelper(Context context) {
         super(context, "sun_key.db", null, 1);
     }
 
+    //创建数据库
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTableStatement = "CREATE TABLE " + TABLE_NAME + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_DATE + " TEXT, " + COL_SUNKEY + " INT, " + COL_SUNMAX + " INT, " + COL_ISOVER + " BOOL";
-
+        db.execSQL("CREATE TABLE " + "IF NOT EXISTS " + TABLE_NAME + "("
+            + COL_ID + " INTEGER PRIMARY KEY,"
+            + COL_DATE + " VARCHER,"
+            + COL_SUNKEY + " INTEGER,"
+            + COL_SUNMAX + " INTEGER,"
+            + COL_ISOVER + " INTEGER)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(db);
     }
 
-    public boolean addOne(String date, int sunkey, int sunmax, boolean isover){
+    public boolean addOne(String date, int sunkey, int sunmax, int isover){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COL_DATE, date);
@@ -43,7 +49,8 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put(COL_SUNMAX, sunmax);
         cv.put(COL_ISOVER, isover);
 
-        long insert = db.insert(TABLE_NAME, null, cv);
+        long insert = db.insert(TABLE_NAME, COL_ID, cv);
+        db.close();
         if (insert==-1){
             return false;
         }else {
@@ -73,8 +80,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
             } while (cursor.moveToNext());
 
-
-
         } else {
             //failure, dont do anything here
 
@@ -84,5 +89,11 @@ public class DBHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return returnList;
+    }
+
+    public void deleteAll(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, "id = " +id, null);
+        db.close();
     }
 }

@@ -44,8 +44,6 @@ public class ConnectTask extends AsyncTask<Void, Void, Void> {
 
 	private boolean CIRCLE = false;
 
-	DataDownloadListener mDataDownloadListener;
-
 	public ConnectTask(Context context, TextView sun_tv, TextView info_tv, ProgressBar progressBar) {
 		this.context = context;
 		this.sun_tv = sun_tv;
@@ -122,13 +120,6 @@ public class ConnectTask extends AsyncTask<Void, Void, Void> {
 
 						//获取到光照度,可以用sqlite存储光照度数据
 						sunkey = Const.sun;
-						//时间
-						@SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("yy.MM.dd 'at' HH:mm:ss");
-						date = df.format(Calendar.getInstance().getTime());
-
-						//由MainActivity接口处理
-						mDataDownloadListener.dataDownloadedSuccessfully(date, sunkey);
-
 					}
 
 					// 数码管显示
@@ -240,14 +231,6 @@ public class ConnectTask extends AsyncTask<Void, Void, Void> {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	public void setDataDownloadListener(DataDownloadListener dataDownloadListener) {
-		this.mDataDownloadListener = dataDownloadListener;
-	}
-
-	public static interface DataDownloadListener {
-		void dataDownloadedSuccessfully(String date, int sunkey);
 	}
 
 }
