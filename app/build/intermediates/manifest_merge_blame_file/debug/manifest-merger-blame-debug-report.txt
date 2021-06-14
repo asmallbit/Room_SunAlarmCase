@@ -2,98 +2,94 @@
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.fro.room_sunalarmcase"
 4    android:versionCode="1"
-5    android:versionName="1.0" >
-6
-7    <uses-sdk
-7-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:16:5-18:41
-8        android:minSdkVersion="24"
-8-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:17:9-35
-9        android:targetSdkVersion="28" />
-9-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:18:9-38
-10
-11    <!-- wifi -->
-12    <uses-permission android:name="android.permission.INTERNET" />
-12-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:8:5-67
-12-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:8:22-64
-13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-13-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:9:5-76
-13-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:9:22-73
-14    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-14-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:10:5-76
-14-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:10:22-73
-15    <uses-permission android:name="android.permission.WAKE_LOCK" />
-15-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:11:5-68
-15-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:11:22-65
-16    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
-16-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:12:5-75
-16-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:12:22-72
-17    <uses-permission android:name="READ_PHONE_STATE" />
-17-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:13:5-55
-17-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:13:22-53
-18    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-18-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:14:5-81
-18-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:14:22-78
-19
-20    <application
-20-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:20:5-43:19
-21        android:allowBackup="true"
-21-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:21:9-35
-22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-22-->[androidx.core:core:1.5.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\07adfc08fe16d3453ab9291511ec05fe\core-1.5.0\AndroidManifest.xml:24:18-86
-23        android:debuggable="true"
-24        android:extractNativeLibs="false"
-25        android:icon="@drawable/icon1"
-25-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:22:9-39
-26        android:label="@string/app_name"
-26-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:23:9-41
-27        android:theme="@style/AppTheme" >
-27-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:24:9-40
-28        <activity
-28-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:25:9-34:20
-29            android:name="com.fro.room_sunalarmcase.MainActivity"
-29-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:26:13-41
-30            android:label="@string/app_name"
-30-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:27:13-45
-31            android:launchMode="singleTask"
-31-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:28:13-44
-32            android:screenOrientation="landscape" >
-32-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:29:13-50
-33            <intent-filter>
-33-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:30:13-33:29
-34                <action android:name="android.intent.action.MAIN" />
-34-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:31:17-69
-34-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:31:25-66
-35
-36                <category android:name="android.intent.category.LAUNCHER" />
-36-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:32:17-77
-36-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:32:27-74
-37            </intent-filter>
-38        </activity>
-39        <activity
-39-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:35:9-41:20
-40            android:name="com.fro.room_sunalarmcase.ShowStoredData"
-40-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:35:19-49
-41            android:label="@string/label2"
-41-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:36:13-43
-42            android:parentActivityName="com.fro.room_sunalarmcase.MainActivity"
-42-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:37:13-55
-43            android:screenOrientation="portrait" >
-43-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:38:13-49
-44            <meta-data
-44-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:39:13-40:73
-45                android:name="android.support.PARENT_ACTIVITY"
-45-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:39:24-70
-46                android:value="com.fro.room_sunalarmcase.MainActivity" />
-46-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:40:17-71
-47        </activity>
-48        <activity
-48-->[com.mylhyl:acp:1.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\8d38bc18b034e65642aadbf2af53bf45\jetified-acp-1.2.0\AndroidManifest.xml:12:9-15:56
-49            android:name="com.mylhyl.acp.AcpActivity"
-49-->[com.mylhyl:acp:1.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\8d38bc18b034e65642aadbf2af53bf45\jetified-acp-1.2.0\AndroidManifest.xml:13:13-54
-50            android:launchMode="singleTask"
-50-->[com.mylhyl:acp:1.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\8d38bc18b034e65642aadbf2af53bf45\jetified-acp-1.2.0\AndroidManifest.xml:14:13-44
-51            android:theme="@style/Theme.Transparent" />
-51-->[com.mylhyl:acp:1.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\8d38bc18b034e65642aadbf2af53bf45\jetified-acp-1.2.0\AndroidManifest.xml:15:13-53
-52    </application>
-53
-54</manifest>
+5    android:versionName="1.0" > <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+6    <uses-sdk
+6-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:16:5-18:41
+7        android:minSdkVersion="24"
+7-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:17:9-35
+8        android:targetSdkVersion="28" />
+8-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:18:9-38
+9
+10    <!-- wifi -->
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:8:5-67
+11-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:8:22-64
+12    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+12-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:9:5-76
+12-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:9:22-73
+13    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+13-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:10:5-76
+13-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:10:22-73
+14    <uses-permission android:name="android.permission.WAKE_LOCK" />
+14-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:11:5-68
+14-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:11:22-65
+15    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+15-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:12:5-75
+15-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:12:22-72
+16    <uses-permission android:name="READ_PHONE_STATE" />
+16-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:13:5-55
+16-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:13:22-53
+17
+18    <application
+18-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:20:5-43:19
+19        android:allowBackup="true"
+19-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:21:9-35
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.5.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\07adfc08fe16d3453ab9291511ec05fe\core-1.5.0\AndroidManifest.xml:24:18-86
+21        android:debuggable="true"
+22        android:extractNativeLibs="false"
+23        android:icon="@drawable/icon1"
+23-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:22:9-39
+24        android:label="@string/app_name"
+24-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:23:9-41
+25        android:theme="@style/AppTheme" >
+25-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:24:9-40
+26        <activity
+26-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:25:9-34:20
+27            android:name="com.fro.room_sunalarmcase.MainActivity"
+27-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:26:13-41
+28            android:label="@string/app_name"
+28-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:27:13-45
+29            android:launchMode="singleTask"
+29-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:28:13-44
+30            android:screenOrientation="landscape" >
+30-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:29:13-50
+31            <intent-filter>
+31-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:30:13-33:29
+32                <action android:name="android.intent.action.MAIN" />
+32-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:31:17-69
+32-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:31:25-66
+33
+34                <category android:name="android.intent.category.LAUNCHER" />
+34-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:32:17-77
+34-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:32:27-74
+35            </intent-filter>
+36        </activity>
+37        <activity
+37-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:35:9-41:20
+38            android:name="com.fro.room_sunalarmcase.ShowStoredData"
+38-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:35:19-49
+39            android:label="@string/label2"
+39-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:36:13-43
+40            android:parentActivityName="com.fro.room_sunalarmcase.MainActivity"
+40-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:37:13-55
+41            android:screenOrientation="portrait" >
+41-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:38:13-49
+42            <meta-data
+42-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:39:13-40:73
+43                android:name="android.support.PARENT_ACTIVITY"
+43-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:39:24-70
+44                android:value="com.fro.room_sunalarmcase.MainActivity" />
+44-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:40:17-71
+45        </activity>
+46        <activity
+46-->[com.mylhyl:acp:1.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\8d38bc18b034e65642aadbf2af53bf45\jetified-acp-1.2.0\AndroidManifest.xml:12:9-15:56
+47            android:name="com.mylhyl.acp.AcpActivity"
+47-->[com.mylhyl:acp:1.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\8d38bc18b034e65642aadbf2af53bf45\jetified-acp-1.2.0\AndroidManifest.xml:13:13-54
+48            android:launchMode="singleTask"
+48-->[com.mylhyl:acp:1.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\8d38bc18b034e65642aadbf2af53bf45\jetified-acp-1.2.0\AndroidManifest.xml:14:13-44
+49            android:theme="@style/Theme.Transparent" />
+49-->[com.mylhyl:acp:1.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\8d38bc18b034e65642aadbf2af53bf45\jetified-acp-1.2.0\AndroidManifest.xml:15:13-53
+50    </application>
+51
+52</manifest>

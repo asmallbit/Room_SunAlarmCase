@@ -1122,6 +1122,11 @@ string curtainIp
 string curtainIpDsc
 string date
 string label2
+string lv_date
+string lv_id
+string lv_isover
+string lv_sunkey
+string lv_sunmax
 string maxDsc
 string millisecond
 string no_connect

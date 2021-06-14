@@ -52,6 +52,12 @@
     <string name="sun_max">光照度上限</string>
     <string name="over_max">是否超过阈值</string>
 
+    <!-- DataBase ListView info -->
+    <string name="lv_id"> id&#160; </string>
+    <string name="lv_date"> &#160; 时间与日期 &#160; &#160; </string>
+    <string name="lv_sunkey"> 光照值&#160; </string>
+    <string name="lv_sunmax"> 光照上限&#160; </string>
+    <string name="lv_isover"> 是否超过阈值</string>
 
 
 

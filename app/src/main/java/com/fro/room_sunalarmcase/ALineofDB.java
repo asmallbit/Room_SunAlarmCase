@@ -2,6 +2,7 @@ package com.fro.room_sunalarmcase;
 
 public class ALineofDB{
     private String date;
+
     private int id, sunkey, sunmax;
     private boolean isover;
 
@@ -13,15 +14,35 @@ public class ALineofDB{
         this.isover = isover;
     }
 
+    //TODO: make the string more readable
     @Override
     public String toString() {
-        return "ALineofDB{" +
-                "date='" + date + '\'' +
-                ", id=" + id +
-                ", sunkey=" + sunkey +
-                ", sunmax=" + sunmax +
-                ", isover=" + isover +
-                '}';
+        return id + "   " + date + "   " + sunkey + "   "
+                + sunmax + "   " + isover;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setSunkey(int sunkey) {
+        this.sunkey = sunkey;
+    }
+
+    public void setSunmax(int sunmax) {
+        this.sunmax = sunmax;
+    }
+
+    public void setIsover(boolean isover) {
+        this.isover = isover;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getDate() {
@@ -38,5 +59,10 @@ public class ALineofDB{
 
     public boolean getIsOver(){
         return this.isover;
+    }
+
+    public String deleteItem(){
+        return ("ID: " + id + ", 日期: " + date + ", 光照值: " + sunkey
+                + ", 光照预警上限: " + sunmax + ", 是否超过光照阈值: " + isover);
     }
 }

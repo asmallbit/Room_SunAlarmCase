@@ -58,7 +58,17 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-
+    public boolean deleteOne(ALineofDB mALineofDB) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String queryString = "DELETE  FROM " + TABLE_NAME + " WHERE " +
+                COL_ID + " = " + mALineofDB.getId();
+        Cursor cursor = db.rawQuery(queryString, null);
+        if(cursor.moveToFirst()){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public List<ALineofDB> getEveryone(){
         List<ALineofDB> returnList = new ArrayList<>();

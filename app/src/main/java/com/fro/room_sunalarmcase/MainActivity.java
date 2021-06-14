@@ -1,18 +1,17 @@
 package com.fro.room_sunalarmcase;
 
-import java.sql.Time;
-import java.util.List;
+//import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.fro.room_sunalarmcase.view.PushSlideSwitchView;
-import com.mylhyl.acp.Acp;
-import com.mylhyl.acp.AcpListener;
-import com.mylhyl.acp.AcpOptions;
+//import com.mylhyl.acp.Acp;
+//import com.mylhyl.acp.AcpListener;
+//import com.mylhyl.acp.AcpOptions;
 
-import android.Manifest;
+//import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -21,7 +20,7 @@ import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
 import android.os.AsyncTask;
-import android.os.Build;
+//import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -67,10 +66,13 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		context = this;
 
+		/*
+		//数据库是不需要存储权限的
 		//Check Permission
 		if (Build.VERSION.SDK_INT >= 23) {
 			checkPermission();
 		}
+		 */
 
 		// 绑定控件
 		bindView();
@@ -190,7 +192,7 @@ public class MainActivity extends Activity {
 					if(isCheck){
 						//保存到数据库
 						if(connect_tb.isChecked()){
-							//每隔10s记录一次
+							//每隔5s记录一次
 							timer.schedule(new HandleData(), delay, cycle);
 						}
 					}
@@ -299,7 +301,8 @@ public class MainActivity extends Activity {
 		return date;
 	}
 
-	//TODO: ask for permission
+	/*
+	//ask for permission
 	private void checkPermission() {
 		Acp.getInstance(this).request(new AcpOptions.Builder()
 						.setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -316,4 +319,5 @@ public class MainActivity extends Activity {
 					}
 				});
 	}
+	 */
 }
