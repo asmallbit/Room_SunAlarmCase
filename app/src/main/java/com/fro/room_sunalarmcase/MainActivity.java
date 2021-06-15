@@ -1,6 +1,7 @@
 package com.fro.room_sunalarmcase;
 
 //import java.util.List;
+import java.sql.Time;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.regex.Matcher;
@@ -60,6 +61,10 @@ public class MainActivity extends Activity {
 
 	private int bool;
 
+	//Also edit here
+	private int sunkey, sunmax;
+	private boolean isover;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -67,11 +72,11 @@ public class MainActivity extends Activity {
 		context = this;
 
 		/*
-		//数据库是不需要存储权限的
-		//Check Permission
-		if (Build.VERSION.SDK_INT >= 23) {
-			checkPermission();
-		}
+		 * //数据库是不需要存储权限的
+		 * //Check Permission
+		 * if (Build.VERSION.SDK_INT >= 23) {
+		 * 	checkPermission();
+		 * }
 		 */
 
 		// 绑定控件
@@ -80,6 +85,12 @@ public class MainActivity extends Activity {
 		initData();
 		// 事件监听
 		initEvent();
+
+		//let's edit here
+		//每隔5s记录一次
+		Timer timer = new Timer();
+		timer.schedule(new HandleData(), delay, cycle);
+
 	}
 
 	/**
@@ -230,13 +241,27 @@ public class MainActivity extends Activity {
 		public void run(){
 			//将返回的数据保存到SQlite数据库
 			DBHelper mDBHelper = new DBHelper(MainActivity.this);
+
+			//Also edit here
+			/*
 			if (Const.sun>Const.maxLim){
 				bool = 1;
 			} else {
 				bool = 0;
 			}
+			 */
+			//产生随机数
+			sunkey = (int)(Math.random()*1000);
+			sunmax = 600;
+			if(sunkey>sunmax){
+				bool = 1;
+			}else {
+				bool = 0;
+			}
+			boolean result = mDBHelper.addOne(getTime(), sunkey,  sunmax, bool);
 
-			boolean result = mDBHelper.addOne(getTime(), Const.sun,  Const.maxLim, bool);
+
+			//boolean result = mDBHelper.addOne(getTime(), Const.sun,  Const.maxLim, bool);
 
 			//数据保存失败提示
 			if(!result){

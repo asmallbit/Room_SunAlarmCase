@@ -8,9 +8,8 @@ com/fro/room_sunalarmcase/ConnectTask.java
  com.fro.room_sunalarmcase.ConnectTask
 com/fro/util/HexStrConvertUtil.java
  com.fro.util.HexStrConvertUtil
-com/fro/room_sunalarmcase/MainActivity.java
- com.fro.room_sunalarmcase.MainActivity
- com.fro.room_sunalarmcase.MainActivity$HandleData
+com/fro/util/ByteToFloatUtil.java
+ com.fro.util.ByteToFloatUtil
 com/fro/util/StreamUtil.java
  com.fro.util.StreamUtil
 com/fro/util/CRCValidate.java
@@ -26,5 +25,6 @@ com/fro/room_sunalarmcase/Const.java
 com/fro/room_sunalarmcase/view/PushSlideSwitchView.java
  com.fro.room_sunalarmcase.view.PushSlideSwitchView
  com.fro.room_sunalarmcase.view.PushSlideSwitchView$OnSwitchChangedListener
-com/fro/util/ByteToFloatUtil.java
- com.fro.util.ByteToFloatUtil
+com/fro/room_sunalarmcase/MainActivity.java
+ com.fro.room_sunalarmcase.MainActivity
+ com.fro.room_sunalarmcase.MainActivity$HandleData
