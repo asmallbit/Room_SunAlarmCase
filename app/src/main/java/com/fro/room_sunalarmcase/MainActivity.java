@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
 	private Button showDataBtn;
 
 	private long cycle=5000;
-	private long delay=0;
+	private final long delay=0;
 
 	private int bool;
 
@@ -135,13 +135,7 @@ public class MainActivity extends Activity {
 	private void initEvent() {
 
 		// 联动
-		linkage_sw.setOnChangeListener((switchView, isChecked) -> {
-			if (isChecked) {
-				Const.linkage = true;
-			} else {
-				Const.linkage = false;
-			}
-		});
+		linkage_sw.setOnChangeListener((switchView, isChecked) -> Const.linkage = isChecked);
 
 		// 连接
 		connect_tb.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -241,9 +235,11 @@ public class MainActivity extends Activity {
 			} else {
 				bool = 0;
 			}
+
 			boolean result = mDBHelper.addOne(getTime(), Const.sun,  Const.maxLim, bool);
+
 			//数据保存失败提示
-			if(result==false){
+			if(!result){
 				Toast.makeText(MainActivity.this, "数据保存失败", Toast.LENGTH_LONG).show();
 			}
 		}
@@ -257,11 +253,10 @@ public class MainActivity extends Activity {
 	 * @return
 	 */
 	private boolean checkIpPort(String IP, String port) {
-		boolean isIpAddress = false;
+		boolean isIpAddress;
 		boolean isPort = false;
 
-		if (IP == null || IP.length() < 7 || IP.length() > 15 || "".equals(IP) || port == null || port.length() < 4
-				|| port.length() > 5 || "".equals(port)) {
+		if (IP == null || IP.length() < 7 || IP.length() > 15 || port == null || port.length() < 4 || port.length() > 5) {
 			return false;
 		}
 		// 判断IP格式和范围
@@ -297,8 +292,7 @@ public class MainActivity extends Activity {
 	public String getTime(){
 		//时间
 		@SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("yy.MM.dd 'at' HH:mm:ss");
-		String date = df.format(Calendar.getInstance().getTime());
-		return date;
+		return df.format(Calendar.getInstance().getTime());
 	}
 
 	/*

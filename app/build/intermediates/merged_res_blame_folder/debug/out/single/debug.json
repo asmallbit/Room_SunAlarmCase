@@ -4,6 +4,10 @@
         "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\drawable-xxhdpi\\push_button_selected_bg.png"
     },
     {
+        "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_background.jpg.flat",
+        "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\drawable-xxhdpi\\background.jpg"
+    },
+    {
         "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_push_button_ball_unselected.png.flat",
         "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\drawable-xxhdpi\\push_button_ball_unselected.png"
     },

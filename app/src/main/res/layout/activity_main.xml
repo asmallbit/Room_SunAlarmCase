@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.fro.room_sunalarmcase.MainActivity"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/background">
 
     <!-- 周期 -->
     <RelativeLayout
@@ -18,7 +19,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,11 +49,11 @@
                 android:layout_toEndOf="@+id/time_et" />
         </LinearLayout>
     </RelativeLayout>
-    
+
     <!--第二部分-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:id="@+id/secondPs"
         android:layout_below="@+id/firstPs">
         <!-- 光照度 -->
@@ -59,7 +61,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:id="@+id/firstLine">
+            android:id="@+id/firstLine"
+            android:layout_marginBottom="30dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,7 +80,7 @@
                 android:maxLength="15"
                 >
             </EditText>
-        
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -95,13 +99,14 @@
                 >
             </EditText>
         </LinearLayout>
-    <!-- 数码管 -->
+        <!-- 数码管 -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:id="@+id/secondLine"
-            android:layout_below="@+id/firstLine">
+            android:layout_below="@+id/firstLine"
+            android:layout_marginBottom="30dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -137,14 +142,15 @@
                 >
             </EditText>
         </LinearLayout>
-    
-    <!-- 蜂鸣器 -->
+
+        <!-- 蜂鸣器 -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/secondLine"
-            android:id="@+id/thirdLine">
+            android:id="@+id/thirdLine"
+            android:layout_marginBottom="30dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -180,8 +186,8 @@
                 android:inputType="number">
             </EditText>
         </LinearLayout>
-    
-    <!-- 窗帘 -->
+
+        <!-- 窗帘 -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -224,14 +230,15 @@
             </EditText>
         </LinearLayout>
     </RelativeLayout>
-    
+
     <!-- 光照值 Last line -->
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:id="@+id/lines"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/secondPs">
+        android:layout_below="@+id/secondPs"
+        android:paddingBottom="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -241,7 +248,7 @@
             android:text="@string/realSunDsc"
             android:paddingStart="40dp"
             tools:ignore="RtlSymmetry" />
-        
+
         <TextView
             android:id="@+id/sun_tv"
             android:layout_width="wrap_content"
@@ -278,7 +285,7 @@
             android:maxLength="4"
             android:layout_toEndOf="@+id/sumMaxDes">
         </EditText>
-        
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -287,37 +294,39 @@
             android:gravity="center"
             android:text="@string/both"
             android:layout_toEndOf="@+id/maxLim_et" />
-        
-        <com.fro.room_sunalarmcase.view.PushSlideSwitchView  
-        android:id="@+id/linkage_sw"  
-        android:layout_width="wrap_content"  
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_toRightOf="@+id/both"
-        android:layout_marginLeft="10dp"  
-        android:layout_marginRight="10dp"
-        android:enabled="true"
-        android:layout_toEndOf="@+id/both" />
-    
-    <!-- 连接/断开 -->
+
+        <com.fro.room_sunalarmcase.view.PushSlideSwitchView
+            android:id="@+id/linkage_sw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_toRightOf="@+id/both"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:enabled="true"
+            android:layout_toEndOf="@+id/both" />
+
+        <!-- 连接/断开 -->
+
         <ToggleButton
             android:id="@+id/connect_tb"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/both"
+            android:gravity="center"
             android:backgroundTint="@color/gray"
             android:textOff="@string/connected"
-            android:textOn="@string/open" />
+            android:textOn="@string/open"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
 
         <TextView
             android:id="@+id/info_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/lux"
-            android:layout_toRightOf="@+id/connect_tb"
-            android:gravity="center"
-            android:layout_alignBaseline="@+id/connect_tb"
-            android:text="@string/statusBar" />
+            android:text="@string/statusBar"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -328,14 +337,22 @@
             android:layout_toRightOf="@+id/info_tv"
             android:text="@string/space"/>
 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_save"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/lines"
+        android:paddingTop="20dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/dataDes"
             android:text="@string/store_Status"
-            android:layout_toRightOf="@id/spaces"
-            android:layout_alignBaseline="@+id/connect_tb"
-            android:layout_below="@+id/lux"/>
+            android:layout_centerHorizontal="true"/>
+
 
         <com.fro.room_sunalarmcase.view.PushSlideSwitchView
             android:layout_width="wrap_content"
@@ -343,10 +360,10 @@
             android:id="@+id/store_status"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_alignBaseline="@+id/dataDes"
             android:enabled="true"
-            android:layout_toRightOf="@+id/dataDes"
-            android:layout_below="@+id/lux"/>
+            android:layout_toEndOf="@+id/dataDes"
+            android:layout_above="@+id/show_data"
+            android:layout_centerVertical="true"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -354,9 +371,8 @@
             android:text="@string/show_data"
             android:backgroundTint="@color/gray"
             android:id="@+id/show_data"
-            android:layout_toRightOf="@id/store_status"
-            android:layout_alignBaseline="@+id/connect_tb"
-            android:layout_toEndOf="@id/store_status" />
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
     </RelativeLayout>
     <ProgressBar
         android:id="@+id/progressBar"

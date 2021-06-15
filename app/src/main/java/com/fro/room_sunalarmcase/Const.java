@@ -1,4 +1,5 @@
 package com.fro.room_sunalarmcase;
+
 public class Const {
 
 	public static String TAG="CASE";

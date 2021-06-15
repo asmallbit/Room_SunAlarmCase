@@ -12,7 +12,7 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppTheme.Base">
         <item name="colorPrimary">@color/white</item>
-        <item name="colorPrimaryDark">@color/red</item>
+        <item name="colorPrimaryDark">@color/white</item>
 
         <item name="windowActionBar">true</item>
         <item name="android:windowNoTitle">true</item>

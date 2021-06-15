@@ -52,8 +52,8 @@
 28-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:27:13-45
 29            android:launchMode="singleTask"
 29-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:28:13-44
-30            android:screenOrientation="landscape" >
-30-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:29:13-50
+30            android:screenOrientation="portrait" >
+30-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:29:13-49
 31            <intent-filter>
 31-->D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:30:13-33:29
 32                <action android:name="android.intent.action.MAIN" />

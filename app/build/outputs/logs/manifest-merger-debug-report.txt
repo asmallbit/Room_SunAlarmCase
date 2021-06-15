@@ -185,7 +185,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Ad
 activity#com.fro.room_sunalarmcase.MainActivity
 ADDED from D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:25:9-34:20
 	android:screenOrientation
-		ADDED from D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:29:13-50
+		ADDED from D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:29:13-49
 	android:label
 		ADDED from D:\OneDrive_jianweihan\Programming\AndroidStudio\Room_SunAlarmCase\app\src\main\AndroidManifest.xml:27:13-45
 	android:launchMode
