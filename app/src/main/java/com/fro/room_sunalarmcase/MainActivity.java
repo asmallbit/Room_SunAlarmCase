@@ -61,10 +61,6 @@ public class MainActivity extends Activity {
 
 	private int bool;
 
-	//Also edit here
-	private int sunkey, sunmax;
-	private boolean isover;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -85,11 +81,6 @@ public class MainActivity extends Activity {
 		initData();
 		// 事件监听
 		initEvent();
-
-		//let's edit here
-		//每隔5s记录一次
-		Timer timer = new Timer();
-		timer.schedule(new HandleData(), delay, cycle);
 
 	}
 
@@ -145,14 +136,26 @@ public class MainActivity extends Activity {
 	 */
 	private void initEvent() {
 
+		Timer timer = new Timer();
+
 		// 联动
 		linkage_sw.setOnChangeListener((switchView, isChecked) -> Const.linkage = isChecked);
+
+		//保存数据
+		storeStatus.setOnChangeListener((switchView, isCheck) -> {
+			//如果选中,就将数据保存
+			if(isCheck){
+				//保存到数据库
+				if(connect_tb.isChecked()){
+					//每隔5s记录一次
+					timer.schedule(new HandleData(), delay, cycle);
+				}
+			}
+		});
 
 		// 连接
 		connect_tb.setOnCheckedChangeListener((buttonView, isChecked) -> {
 			//保存数据的定时任务
-			Timer timer = new Timer();
-
 			if (isChecked) {
 
 				// 获取IP和端口
@@ -191,17 +194,6 @@ public class MainActivity extends Activity {
 				connectTask.setCIRCLE(true);
 				connectTask.execute();
 
-				//保存数据
-				storeStatus.setOnChangeListener((switchView, isCheck) -> {
-					//如果选中,就将数据保存
-					if(isCheck){
-						//保存到数据库
-						if(connect_tb.isChecked()){
-							//每隔5s记录一次
-							timer.schedule(new HandleData(), delay, cycle);
-						}
-					}
-				});
 			} else {
 
 				// 取消任务
@@ -241,27 +233,14 @@ public class MainActivity extends Activity {
 		public void run(){
 			//将返回的数据保存到SQlite数据库
 			DBHelper mDBHelper = new DBHelper(MainActivity.this);
-
-			//Also edit here
-			/*
 			if (Const.sun>Const.maxLim){
 				bool = 1;
 			} else {
 				bool = 0;
 			}
-			 */
-			//产生随机数
-			sunkey = (int)(Math.random()*1000);
-			sunmax = 600;
-			if(sunkey>sunmax){
-				bool = 1;
-			}else {
-				bool = 0;
-			}
-			boolean result = mDBHelper.addOne(getTime(), sunkey,  sunmax, bool);
 
 
-			//boolean result = mDBHelper.addOne(getTime(), Const.sun,  Const.maxLim, bool);
+			boolean result = mDBHelper.addOne(getTime(), Const.sun,  Const.maxLim, bool);
 
 			//数据保存失败提示
 			if(!result){

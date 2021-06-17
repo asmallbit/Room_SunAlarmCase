@@ -98,8 +98,6 @@ public class ConnectTask extends AsyncTask<Void, Void, Void> {
 		int sunkey, sunmax;
 		boolean isover;
 
-
-
 		// 循环读取数据
 		while (CIRCLE) {
 			try {
