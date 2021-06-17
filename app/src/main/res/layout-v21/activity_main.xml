@@ -300,11 +300,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_toRightOf="@+id/both"
-            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/both"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginRight="10dp"
-            android:enabled="true"
-            android:layout_toEndOf="@+id/both" />
+            android:enabled="true" />
 
         <!-- 连接/断开 -->
 
@@ -358,12 +358,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/store_status"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
             android:enabled="true"
-            android:layout_toEndOf="@+id/dataDes"
-            android:layout_above="@+id/show_data"
-            android:layout_centerVertical="true"/>
+            android:layout_toEndOf="@+id/dataDes" />
 
         <Button
             android:layout_width="wrap_content"
