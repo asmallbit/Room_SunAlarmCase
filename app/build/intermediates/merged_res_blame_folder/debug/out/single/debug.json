@@ -12,6 +12,10 @@
         "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\drawable-xxhdpi\\push_button_ball_unselected.png"
     },
     {
+        "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_background1.jpg.flat",
+        "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\drawable-xxhdpi\\background1.jpg"
+    },
+    {
         "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_push_button_unselected_bg.png.flat",
         "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\drawable-xxhdpi\\push_button_unselected_bg.png"
     },
@@ -30,5 +34,9 @@
     {
         "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_icon1.png.flat",
         "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\drawable-xxhdpi\\icon1.png"
+    },
+    {
+        "merged": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\build\\intermediates\\res\\merged\\debug\\layout_splash_layout.xml.flat",
+        "source": "D:\\OneDrive_jianweihan\\Programming\\AndroidStudio\\Room_SunAlarmCase\\app\\src\\main\\res\\layout\\splash_layout.xml"
     }
 ]

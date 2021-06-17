@@ -762,6 +762,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable background
+drawable background1
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1084,6 +1085,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout show_data
+layout splash_layout
 layout support_simple_spinner_dropdown_item
 string BuzzerIpDsc
 string abc_action_bar_home_description
